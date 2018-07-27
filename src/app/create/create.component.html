@@ -1,0 +1,9 @@
+<form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="form">
+  <div formArrayName="fields">
+    <div *ngFor="let item of form.get('fields').controls; let i = index;">
+     <app-field   [formGroup]="form.get('fields').controls[i]" (remove)="onDelete(i)"></app-field>
+    </div>
+  </div>
+</form>
+
+<input type="button" (click)="addNew()" value="Add new">

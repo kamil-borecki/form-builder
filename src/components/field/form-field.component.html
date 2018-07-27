@@ -1,0 +1,35 @@
+<div class="fields" [formGroup]="formGroup">
+    <div class="field-row" *ngIf="parentType" formGroupName="condition">
+        <label>
+          Condition
+        </label>
+        <select formControlName="type">
+            <option *ngFor="let type of conditionTypes" [value]="type" >{{conditionTypeLabels[type]}}</option>
+          </select>
+      </div>
+  <div class="field-row">
+    <label>
+      Question
+    </label>
+    <input type="text" formControlName="question" placeholder="Item name">
+  </div>
+  <div class="field-row">
+    <label>
+      Type
+    </label>
+
+    <select formControlName="type" [appDisableControl]="!!formGroup.get('childrens').controls.length">
+      <option *ngFor="let type of fieldTypeLabels | keys" [value]="type">{{fieldTypeLabels[type]}}</option>
+    </select>
+  </div>
+</div>
+
+<div class="actions">
+    <input type="button" (click)="addNew()" value="Add new sub">
+    <input type="button" (click)="delete()" value="delete">
+
+</div>
+<div class="childrens">
+  <app-field *ngFor="let item of formGroup.get('childrens').controls; let i = index;" [parentType]="formGroup.get('type').value" [formGroup]="formGroup.get('childrens').controls[i]"
+    (remove)="onDelete(i)"></app-field>
+</div>
