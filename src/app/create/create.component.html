@@ -1,9 +1,13 @@
-<form novalidate (ngSubmit)="onSubmit(form)" [formGroup]="form">
+<form novalidate [formGroup]="form">
   <div formArrayName="fields">
-    <div *ngFor="let item of form.get('fields').controls; let i = index;">
-     <app-field   [formGroup]="form.get('fields').controls[i]" (remove)="onDelete(i)"></app-field>
+    <div *ngFor="let item of form.controls['fields'].controls; let i = index;" app-fade-in>
+      <app-generator-field [formGroup]="item" (remove)="onDelete(i)"></app-generator-field>
     </div>
   </div>
 </form>
-
-<input type="button" (click)="addNew()" value="Add new">
+<div class="add-btn-wrapper">
+  <button type="button" class="success" (click)="addNew()">
+    <i class="fas fa-plus"></i>
+    <span>Add new field</span>
+  </button>
+</div>

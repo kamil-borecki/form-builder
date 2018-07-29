@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "rekrutacja-one": {
+    "form-builder": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/rekrutacja-one",
+            "outputPath": "dist/form-builder",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,18 +50,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "rekrutacja-one:build"
+            "browserTarget": "form-builder:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "rekrutacja-one:build:production"
+              "browserTarget": "form-builder:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "rekrutacja-one:build"
+            "browserTarget": "form-builder:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "rekrutacja-one-e2e": {
+    "form-builder-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +103,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "rekrutacja-one:serve"
+            "devServerTarget": "form-builder:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "rekrutacja-one:serve:production"
+              "devServerTarget": "form-builder:serve:production"
             }
           }
         },
@@ -123,5 +123,5 @@
       }
     }
   },
-  "defaultProject": "rekrutacja-one"
+  "defaultProject": "form-builder"
 }

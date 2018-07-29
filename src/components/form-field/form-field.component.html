@@ -1,0 +1,35 @@
+<div class="field" [ngClass]="{'parent': getChildrens(value).length > 0}">
+  <div class="field-body box">
+    <div class="fields">
+      <div class="field-row">
+        <label class="question" for="question-text">
+          {{field.question}}
+        </label>
+      </div>
+      <div class="field-row">
+        <input id="question-text" [type]="field.type" [(ngModel)]="value" *ngIf="field.type !== fieldTypes.Radio">
+        <div class="field-group" *ngIf="field.type === fieldTypes.Radio">
+          <label class="checkbox">
+            <input type="radio" [(ngModel)]="value" value="yes">
+            <div class="switch">
+              <i class="fas fa-check"></i>
+              <span>Yes</span>
+            </div>
+          </label>
+          <label class="checkbox">
+            <input type="radio" [(ngModel)]="value" value="no">
+            <div class="switch">
+              <i class="fas fa-times"></i>
+              <span>No</span>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="childrens">
+    <div *ngFor="let item of getChildrens(value)" app-fade-in>
+      <app-form-field [field]="item" ></app-form-field>
+    </div>
+  </div>
+</div>

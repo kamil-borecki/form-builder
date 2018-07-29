@@ -1,0 +1,29 @@
+@import '~src/sass/common/variables'
+\:host
+  .field
+    &.parent
+      &.invalid
+        background-color: rgba($red, .05)
+    .actions
+      display: flex
+      justify-content: flex-end
+      padding-top: 1rem
+      > :not(:first-child)
+        margin-left: .5rem
+      button.add
+        display: flex
+        span
+          max-width: 0px
+          display: inline-block
+          overflow: hidden
+          transition-duration: .3s
+          width: auto
+          white-space: nowrap
+          margin-left: 0px
+        &:not(:disabled)
+          &:hover
+            span
+              max-width: 200px
+              margin-left: 5px
+
+

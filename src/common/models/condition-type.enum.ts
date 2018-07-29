@@ -1,8 +1,8 @@
 
 export enum ConditionType {
-  Equals = 'Equals',
-  GreaterThan = 'GreaterThan',
-  LessThan = 'LessThan ',
+  Equals = 'equals',
+  GreaterThan = 'greaterThan',
+  LessThan = 'lessThan ',
 }
 
 export const ConditionTypeLabels = {

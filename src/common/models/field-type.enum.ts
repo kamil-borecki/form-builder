@@ -1,7 +1,7 @@
 export enum FieldType {
-  Text= 'Text',
-  Number= 'Number',
-  Radio= 'Radio',
+  Text= 'text',
+  Number= 'number',
+  Radio= 'radio',
 }
 export const FieldTypeLabels = {
   [FieldType.Text]: 'Text',

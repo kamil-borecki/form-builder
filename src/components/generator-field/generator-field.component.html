@@ -1,0 +1,55 @@
+<div class="field" [ngClass]="{'parent': formGroup.get('childrens').controls.length > 0 && showChildrens, 'invalid': isInvalid}">
+  <div class="field-body box">
+    <div class="fields" [formGroup]="formGroup">
+      <div class="field-row" *ngIf="parentType" formGroupName="condition">
+        <label>
+          Condition
+        </label>
+        <div class="field-group">
+          <select formControlName="type">
+            <option *ngFor="let type of conditionTypes" [value]="type">{{conditionTypeLabels[type]}}</option>
+          </select>
+          <input type="text" *ngIf="parentType === fieldTypes.Text" formControlName="value">
+          <input type="number" *ngIf="parentType === fieldTypes.Number" formControlName="value">
+          <select *ngIf="parentType === fieldTypes.Radio" formControlName="value">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+          </select>
+        </div>
+      </div>
+      <div class="field-row">
+        <label>
+          Question
+        </label>
+        <input type="text" formControlName="question">
+      </div>
+      <div class="field-row">
+        <label>
+          Type
+        </label>
+        <select formControlName="type">
+          <option *ngFor="let type of fieldTypeLabels | keys" [value]="type">{{fieldTypeLabels[type]}}</option>
+        </select>
+      </div>
+    </div>
+    <div class="actions">
+      <button type="button" class="add success" (click)="addNew()" [disabled]="formGroup.get('childrens').disabled || formGroup.get('question').invalid || (formGroup.get('condition') || {}).invalid">
+        <i class="fas fa-plus"></i>
+        <span>
+          Add new sub field
+        </span>
+      </button>
+      <button type="button" class="danger" (click)="delete()">
+        <i class="far fa-trash-alt"></i>
+      </button>
+      <button type="button" class="" (click)="toggleChildrensVisible()" *ngIf="formGroup.controls['childrens'].controls.length">
+        <i class="fas fa-chevron-up" [ngClass]="{'fa-chevron-up':showChildrens,'fa-chevron-down':!showChildrens  }"></i>
+      </button>
+    </div>
+  </div>
+  <div class="childrens" *ngIf="showChildrens">
+    <div *ngFor="let item of formGroup.controls['childrens'].controls; let i = index;" app-fade-in>
+      <app-generator-field [parentType]="formGroup.get('type').value" [formGroup]="item" (remove)="onDelete(i)"></app-generator-field>
+    </div>
+  </div>
+</div>

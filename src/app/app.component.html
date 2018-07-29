@@ -1,8 +1,36 @@
-<div class="container">
-
-
-
-  <h1>Form Builder</h1>
-
-  <router-outlet></router-outlet>
+<div class="container" [@routerTransition]="o.isActivated ? o.activatedRoute : ''">
+  <div class="wrapper">
+    <header>
+      <h1>Form Builder</h1>
+    </header>
+    <nav>
+      <ul>
+        <li>
+          <a routerLink="/create" routerLinkActive="active">
+            <i class="far fa-plus-square"></i>
+            <span>
+              Create
+            </span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/preview">
+            <i class="far fa-eye"></i>
+            <span>
+              Preview
+            </span>
+          </a>
+        </li>
+        <li>
+          <a routerLink="/export">
+            <i class="fas fa-file-export"></i>
+            <span>
+              Export
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
 </div>

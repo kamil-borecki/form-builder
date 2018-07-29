@@ -1,0 +1,72 @@
+button, input[type=button], .btn
+  border: none
+  background: none
+  font-size: 1rem
+  padding: .5rem 1rem
+  background-color: $white
+  color: $black
+  font-weight: 300
+  opacity: .8
+  box-shadow: 0 3px 10px 0 rgba($black,.1)
+  &:not(:disabled)
+    &:hover, &:focus
+      cursor: pointer
+      opacity: 1
+      box-shadow: 0 3px 10px 0 rgba($black,.2)
+  &.success, &.danger
+    color: $white
+  &.success
+    background-color: $green
+  &.danger
+    background-color: $red
+label
+  font-size: 1rem
+  flex: 1
+  &:not(:last-child)
+    margin-right: .5rem
+input, select
+  padding: .5rem 1rem
+  font-size: 1rem
+  flex: 2
+  width: 100%
+  color: $black
+  &:not(:first-child)
+    margin-left: .5rem
+
+  &:not([type=radio])
+    box-shadow: 0 3px 10px 0 rgba($black,.1)
+    background-color: rgba($white, .2)
+    border: none
+    border-radius: 3px
+  &:not(:disabled):not([type=radio])
+    &:hover, &:focus
+      background-color: rgba($white, .3)
+      box-shadow: 0 3px 10px 0 rgba($black,.2)
+  &.ng-invalid:not(.ng-untouched)
+    background-color: rgba($red, .2)
+*:disabled
+  opacity: .5
+  &:hover
+    cursor: not-allowed
+.checkbox
+  input
+     display: none
+  .switch
+    display: flex
+    justify-content: center
+    align-items: center
+    padding: .5rem 1rem
+    box-shadow: 0 3px 10px 0 rgba($black,.1)
+    background-color: rgba($white, .2)
+    border-radius: 3px
+    i
+      margin-right: .5rem
+      font-size: 1.5rem
+    span
+      font-size: 1.2rem
+  input:checked ~ .switch, .switch:hover
+    cursor: pointer
+    background-color: rgba($green, .8)
+    color: $white
+
+
